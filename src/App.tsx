@@ -91,8 +91,8 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col transition-colors duration-300">
-      <header className="sticky top-0 z-50 flex items-center justify-between px-6 sm:px-8 py-4 border-b border-border bg-card/60 backdrop-blur-md">
+    <div className="min-h-screen bg-background text-foreground flex flex-col items-center transition-colors duration-300">
+      <header className="sticky top-0 z-50 flex items-center justify-between px-6 sm:px-8 py-4 border-b border-border bg-card/60 backdrop-blur-md w-full">
         <div className="flex items-center gap-3">
           <img src="/logo.png" alt="Logo" className="w-8 h-8 rounded-full object-cover border border-border shadow-sm" />
           <h1 className="text-xl font-bold tracking-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">Markdown Live Previewer</h1>
@@ -121,7 +121,7 @@ function App() {
         </div>
       </header>
 
-      <main className="flex-1 w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 max-w-6xl">
+      <main className="flex-1 w-full px-4 sm:px-6 py-6 sm:py-10 max-w-6xl">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Write markdown, preview instantly</h2>
@@ -205,7 +205,7 @@ function App() {
         </div>
       </main>
 
-      <footer className="text-center py-8 border-t border-border text-sm text-muted-foreground">
+      <footer className="w-full text-center py-8 border-t border-border text-sm text-muted-foreground">
         <p>Built with ❤️ by <a href="https://github.com/parithosh-varma" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Parithosh Varma</a></p>
       </footer>
     </div>
