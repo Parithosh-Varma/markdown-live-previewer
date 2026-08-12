@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 
@@ -89,6 +89,30 @@ function App() {
     a.click()
     URL.revokeObjectURL(url)
   }
+
+  const handleKeyboard = useCallback((e: KeyboardEvent) => {
+    // Ctrl/Cmd + K to focus textarea
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault()
+      const textarea = document.querySelector('textarea')
+      if (textarea) textarea.focus()
+    }
+    // Ctrl/Cmd + S to download markdown
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+      e.preventDefault()
+      downloadMd()
+    }
+    // Ctrl/Cmd + Shift + C to copy HTML
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+      e.preventDefault()
+      copyHtml()
+    }
+  }, [downloadMd, copyHtml])
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyboard)
+    return () => window.removeEventListener('keydown', handleKeyboard)
+  }, [handleKeyboard])
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center transition-colors duration-300">
